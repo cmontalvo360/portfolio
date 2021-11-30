@@ -7,13 +7,24 @@
 
 body {
     min-height: 100vh;
-    background-color: black;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    background-attachment: fixed;
+}
+
+h2 {
+    color: rgb(52, 212, 212);
+    text-decoration: underline;
+}
+#layout{
+    background-image: url("images/mountain.png");
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: 50% 70%;
+    background-repeat: no-repeat;
 }
 
 section {
-    height: 100vh;
-    width: 100%;
-    color: white;
+    color: #FFFFFF;
 }
 
 nav {
@@ -42,17 +53,16 @@ nav ul li {
 }
 
 nav ul li a {
-    background-color: crimson;
-    color: white;
+    
+    color: #FFFFFF;
     padding: 10px 15px;
-    border-radius: 20px;
     text-decoration: none;
     font-weight: 700;
+    font-size: 24px;
 }
 
 nav ul li a:hover {
-    background-color: rgb(207,
-     102, 102);
+    background-color: rgb(109, 0, 251);
 }
 
 .hamburger {
@@ -72,9 +82,12 @@ nav ul li a:hover {
 
 @media only screen and (max-width: 768px) {
     .hamburger {
-
         display: block;
-        margin: 30px;
+        margin: 20px;
+    }
+
+    .hamburger:hover {
+        cursor: pointer;
     }
 
     .hamburger.active .bar:nth-child(2) {
@@ -89,28 +102,38 @@ nav ul li a:hover {
         transform: translateY(-14px) rotate(-45deg);
     }
 
+    nav {
+        background-color: rgb(51, 48, 48);
+    }
     nav ul {
         display: none;
+        margin: 0;
+        font-size: 40px;
     }
 
     ul.active {
         display: flex;
         position: fixed;
-        right: -45%;
-        top: 5rem;
+        top: 6rem;
         width: 100%;
+        height: 100%;
+        background-color: rgb(23, 11, 34);
         flex-direction: column;
-        width: 100%;
-        transition: .5s; 
+        justify-content: space-evenly;
     }
 
-    ul.active li {
-        margin-bottom: 30px;
+    nav ul li a {
+
+        font-size: 60px;
+    }
+    nav ul li a:hover {
+        background-color: transparent;
+        color: rgb(109, 0, 251);
     }
 }
 
-#hero {
-    border: 2px solid crimson;
+.hero-text span {
+    color: rgb(52, 212, 212);
 }
 
 .hero-space {
@@ -123,17 +146,24 @@ nav ul li a:hover {
 .hero-text {
     font-size: 40px;
     margin-bottom: 250px;
+    padding: 30px;
 }
 
 .button {
     width: 200px;
-    height: 60px;
-    border-radius: 30px;
-    background-color: crimson;
+    padding: 10px;
+    background-color: transparent;
+    border: 2px solid rgb(109, 0, 251);
     text-align: center;
-    padding-right: 0px;
     float: left;
     margin-top: 10px;
+    transition: .3s;
+}
+
+.button:hover {
+    transition: .3s;
+    background-color: rgb(109, 0, 251);
+    padding: 15px;
 }
 
 .button a {
@@ -147,43 +177,76 @@ nav ul li a:hover {
     margin-top: 10px;
 }
 
-#about {
+.linked img {
+    width: 80px;
+    transition: all .5s;
+}
+
+.linked img:hover {
+    width: 90px;
+    transition: all .5s;
+}
+
+.about {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
     font-size: 30px;
     text-align: center;
-    border: 2px solid blueviolet;
+    padding: 140px 30px;
 }
 
-#about h1 {
-    font-size: 50px;
+.about p {
+    padding: 30px;
+}
+
+.skills {
+    margin-top: 100px;
+    min-height: 260px;
+    padding: 30px;
+}
+
+.skills div {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    transition: .3s;
+}
+
+.skills img:hover {
+    transition: .3s;
+    width: 130px;
 }
 
 #projects {
     font-size: 40px;
     text-align: center;
-    border: 2px solid greenyellow;
+    padding: 120px 30px;
 }
-
 
 .project-card {
     width: 300px;
     height: 500px;
-    border: 1px solid blue;
+    border: 1px solid rgb(109, 0, 251);
     margin: 40px;
+    padding: 20px;
 }
 
 .project-container {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.project-card img:hover {
+    width: 50%;
 }
 
 @media only screen and (max-width: 768px) {
     .project-container {
         display: flex;
         flex-wrap: wrap;
+        padding: 40px;
     }
 }
 
@@ -191,8 +254,48 @@ nav ul li a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
     font-size: 30px;
     text-align: center;
-    border: 2px solid yellow;
+    padding: 160px 30px;
+}
+
+#contact form {
+    margin-top: 100px;
+    min-width: 500px;
+    max-width: 800px;
+}
+
+[type="text"] {
+    background: rgb(43, 42, 42);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 8px;
+}
+
+form textarea {
+    background: rgb(43, 42, 42);
+    color: white;
+    border: none;
+    height: 120px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 0px;
+}
+
+form [type="submit"] {
+    height: 40px;
+    font-size: 1.5rem;
+    color: white;
+    width: 100%;
+    margin-top: 14px;
+    border: 2px solid rgb(109, 0, 251);
+    background-color: transparent;
+    transition: .3s;
+}
+
+form [type="submit"]:hover {
+    transition: .3s;
+    background-color: rgb(109, 0, 251);
 }
