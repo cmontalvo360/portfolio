@@ -1,15 +1,52 @@
-window.onload = function() {
-    const hamburger = document.querySelector(".hamburger");
-    const navList = document.getElementById("nav-list");
+window.onload = function () {
+	const hamburger = document.querySelector(".hamburger");
+	const navList = document.getElementById("nav-list");
+	const form = document.querySelector("form");
 
-    function toggleButton() {
 
-        hamburger.classList.toggle("active");
-        navList.classList.toggle("active");
-    }
-    
-    hamburger.addEventListener("click", toggleButton);
-    navList.addEventListener("click", toggleButton);
+	function toggleButton() {
+
+		hamburger.classList.toggle("active");
+		navList.classList.toggle("active");
+	}
+
+	//sends data to lamda function that sends me an email
+	function sendEmail(event) {
+		//prevent the form from refreshing the page
+		event.preventDefault();
+
+		const { name, email, message } = event.target;
+		const endpoint = "<https://cy7y2gyxpg.execute-api.us-west-2.amazonaws.com/default/Email-sender>";
+		// We use JSON.stringify here so the data can be sent as a string via HTTP
+		const body = JSON.stringify({
+			senderName: name.value,
+			senderEmail: email.value,
+			message: message.value
+		});
+		const requestOptions = {
+			method: "POST",
+			body
+		};
+
+		fetch(endpoint, requestOptions)
+			.then((response) => {
+				if (!response.ok) throw new Error("Error in fetch");
+				console.log("check");
+				return response.json();
+			})
+			.then((response) => {
+				document.getElementById("result-text").innerText =
+					"Email sent successfully!";
+			})
+			.catch((error) => {
+				document.getElementById("result-text").innerText =
+					"An unkown error occured.";
+			});
+	};
+
+	hamburger.addEventListener("click", toggleButton);
+	navList.addEventListener("click", toggleButton);
+	form.addEventListener("submit", sendEmail);
 }
 
 
