@@ -1,116 +1,132 @@
+<!Doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cesar Montalvo</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="index.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cesar Montalvo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+  <script src="index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"></script>
 </head>
+
 <body>
-    <div id="layout">
-        <section id="hero">
+  <!-- Navigation -->
+  <nav class="header">
 
-          <nav>
+    <a href="#" class="logo"><img src="images/CM.png" alt="logo"></a>
+    <ul id="nav-list">
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-            <a href="#" class="logo"><img src="images/cm.png" alt="logo"></a>
-            <ul id="nav-list">
-              <li><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
+    <button class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </nav>
 
-            <button class="hamburger">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
-            </button>
-
-          </nav>
-
-          <div class="hero-space">
-            <div class="hero-text">
-              <h1>Hi! I'm <span>Cesar Montalvo</span></h1>
-              <P>Software Developer</p>
-              <div class="links">
-                <div class="button"><a href="#contact">Lets Talk</a></div>
-                <div class="linked">
-                  <a href="https://www.linkedin.com/in/cesar-montalvo/" target="_blank" rel="noopener noreferrer">
-                    <img src="images/linkedin.svg" alt="linkedin">
-                  </a>
-                </div>
-              </div>
-            </div>
+  <!-- Hero Section -->
+<section class="hero">
+    <img class ="hero_image" src="images/mountain.png" alt="mountain image">
+    <div class="hero_content">
+      <div class="hero_text">
+        <h1>Hi! I'm <span>Cesar Montalvo</span></h1>
+        <P>Software Developer</p>
+        <div class="links">
+          <div class="button"><a href="#contact">Lets Talk</a></div>
+          <div class="linked">
+            <a href="https://www.linkedin.com/in/cesar-montalvo/" target="_blank" rel="noopener noreferrer">
+              <img src="images/linkedin.svg" alt="linkedin">
+            </a>
           </div>
-
-        </section>
-
-        <section id="about" class="about">
-          <div>
-            <h2>About Me</h2>
-            <p>Hello, my name is Cesar Montalvo and Im a software developer. 
-            Nothing is better than solving problems with code.....nothing =D
-            </p>
-          </div>
-
-          <div class="skills">
-            <h2>Skills</h2>
-            <div>
-              <img src="images/python.svg" alt="logo">
-              <img src="images/javascript.svg" alt="logo">
-              <img src="images/html5.svg" alt="logo">
-              <img src="images/css3.svg" alt="logo">
-              <img src="images/c-sharp.svg" alt="logo">
-            </div>
-          </div>
-
-        </section>
-
-        <section id="projects">
-          <h2>Projects</h2>
-          <div class="project-container">
-            <div class="project-card">
-              <img src="" alt="project one image">
-              <h3>Project one</h3>
-              <p>This project does so and so</p>
-              <p>View Demo</p>
-            </div>
-            <div class="project-card">
-              <img src="" alt="project one image">
-              <h3>Project two</h3>
-              <p>This project does so and so</p>
-              <p>View Demo</p>
-            </div>
-            <div class="project-card">
-              <img src="" alt="project one image">
-              <h3>Project three</h3>
-              <p>This project does so and so</p>
-              <p>View Demo</p>
-            </div>
-            <div class="project-card">
-              <img src="" alt="project one image">
-              <h3>Project four</h3>
-              <p>This project does so and so</p>
-              <p>View Demo</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="contact">
-          <h2>Contact Me!</h2>
-
-          <form>
-            <input type="text" id="name" name="name" placeholder="Name"><br>
-            <input type="email" id="email" name="email" placeholder="Email"><br>
-            <textarea id="message" name="message" rows="4" cols="30" placeholder="Message"></textarea>
-            <input type="submit"/>
-            <div><p id="result-text"></p></div>
-          </form>
-        </section>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <section id="about" class="about">
+    <div>
+      <h2>About Me</h2>
+      <p>Hello, my name is Cesar Montalvo and Im a software developer.
+        Nothing is better than solving problems with code.....nothing =D
+      </p>
+      <button>
+        Click Here
+    </button>
+    <p id="a"></p>
+    </div>
+
+    <div class="skills">
+      <h2>Skills</h2>
+      <div>
+        <img src="images/python.svg" alt="logo">
+        <img src="images/javascript.svg" alt="logo">
+        <img src="images/html5.svg" alt="logo">
+        <img src="images/css3.svg" alt="logo">
+        <img src="images/c-sharp.svg" alt="logo">
+      </div>
+    </div>
+
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-container">
+      <div class="project-card">
+        <img src="" alt="project one image">
+        <h3>Project one</h3>
+        <p>This project does so and so</p>
+        <p>View Demo</p>
+      </div>
+      <div class="project-card">
+        <img src="" alt="project one image">
+        <h3>Project two</h3>
+        <p>This project does so and so</p>
+        <p>View Demo</p>
+      </div>
+      <div class="project-card">
+        <img src="" alt="project one image">
+        <h3>Project three</h3>
+        <p>This project does so and so</p>
+        <p>View Demo</p>
+      </div>
+      <div class="project-card">
+        <img src="" alt="project one image">
+        <h3>Project four</h3>
+        <p>This project does so and so</p>
+        <p>View Demo</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me!</h2>
+
+    <form>
+      <input type="text" id="name" name="name" placeholder="Name"><br>
+      <input type="email" id="email" name="email" placeholder="Email"><br>
+      <textarea id="message" name="message" rows="4" cols="30" placeholder="Message"></textarea>
+      <input type="submit" />
+      <div>
+        <p id="result-text"></p>
+      </div>
+    </form>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

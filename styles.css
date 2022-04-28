@@ -6,7 +6,6 @@
 }
 
 body {
-    min-height: 100vh;
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     background-attachment: fixed;
 }
@@ -15,23 +14,17 @@ h2 {
     color: rgb(52, 212, 212);
     text-decoration: underline;
 }
-#layout{
-    background-image: url("images/mountain.png");
-    background-attachment: fixed;
-    background-size: 100%;
-    background-position: 50% 70%;
-    background-repeat: no-repeat;
-}
-
-section {
-    color: #FFFFFF;
-}
 
 nav {
     position: fixed;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    z-index: 2;
+}
+
+nav.active {
+    background-color: rgb(51, 48, 48)!important;
 }
 
 nav img {
@@ -63,6 +56,7 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: rgb(109, 0, 251);
+    color: #FFFFFF;
 }
 
 .hamburger {
@@ -132,21 +126,38 @@ nav ul li a:hover {
     }
 }
 
-.hero-text span {
-    color: rgb(52, 212, 212);
+section {
+    color: #FFFFFF;
 }
 
-.hero-space {
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero_image {
+    position: fixed;
+    top: 35%;
+    left: 3%;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+}
+
+.hero_content {
     display: flex;
     height: 100%;
     justify-content: center;
     align-items: center;
-
 }
-.hero-text {
+.hero_text {
     font-size: 40px;
-    margin-bottom: 250px;
     padding: 30px;
+}
+
+.hero_text span {
+    color: rgb(52, 212, 212);
 }
 
 .button {

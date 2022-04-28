@@ -2,21 +2,34 @@ window.onload = function () {
 	const hamburger = document.querySelector(".hamburger");
 	const navList = document.getElementById("nav-list");
 	const form = document.querySelector("form");
-
+	const navScroll = document.querySelector("nav");
 
 	function toggleButton() {
-
 		hamburger.classList.toggle("active");
 		navList.classList.toggle("active");
 	}
 
-	//sends data to lamda function that sends me an email
-	function sendEmail(event) {
-		//prevent the form from refreshing the page
-		event.preventDefault();
+	function scroller() {
+		if (window.scrollY >= 20)
+			navScroll.classList.toggle("active");
+		else {
+			navScroll.classList.toggle("active");
+		}
+	}
 
-		const { name, email, message } = event.target;
-		const endpoint = "<https://cy7y2gyxpg.execute-api.us-west-2.amazonaws.com/default/Email-sender>";
+	hamburger.addEventListener("click", toggleButton);
+	navList.addEventListener("click", toggleButton);
+	form.addEventListener("submit", sendEmail);
+	navScroll.addEventListener("scroll", scroller);
+
+	//sends data to lamda function that sends me an email
+	function sendEmail(e) {
+		//prevent the form from refreshing the page
+		e.preventDefault();
+
+		const { name, email, message } = e.target;
+
+		const endpoint = "https://cy7y2gyxpg.execute-api.us-west-2.amazonaws.com/default/Email-sender";
 		// We use JSON.stringify here so the data can be sent as a string via HTTP
 		const body = JSON.stringify({
 			senderName: name.value,
@@ -25,7 +38,7 @@ window.onload = function () {
 		});
 		const requestOptions = {
 			method: "POST",
-			body
+			body: body
 		};
 
 		fetch(endpoint, requestOptions)
@@ -34,19 +47,15 @@ window.onload = function () {
 				console.log("check");
 				return response.json();
 			})
-			.then((response) => {
+			.then(response => {
 				document.getElementById("result-text").innerText =
-					"Email sent successfully!";
+					"Email sent successfully! ";
 			})
 			.catch((error) => {
 				document.getElementById("result-text").innerText =
-					"An unkown error occured.";
+					"An unkown error occured: " + error;
 			});
 	};
-
-	hamburger.addEventListener("click", toggleButton);
-	navList.addEventListener("click", toggleButton);
-	form.addEventListener("submit", sendEmail);
 }
 
 
